@@ -3,6 +3,17 @@
 
 #include "RoccatPowerGrid.h"
 
+// API to the managed dll that reads the Planetside Websocket API.
+extern "C" {
+	int helloWorld();
+	int pollNumDeaths();
+	void OpenAndRunWebSocket();
+	void CloseWebSocket();
+	int pollWebSocketStatus();
+}
+
+
+
 //see: http://doc.qt.digia.com/qt/plugins-howto.html
 
 class gametracker : public IFuncProvider
@@ -38,6 +49,9 @@ public:
 
 public slots:
     void OnTick();
+
+private:
+	int nDeaths;
 };
 
 #endif // SAMPLE2_H
