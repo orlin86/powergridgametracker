@@ -29,3 +29,4 @@ src/GeneratedFiles
 *.sdf
 *.vcx*
 *.opensdf
+*.ipch
