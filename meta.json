@@ -1,0 +1,10 @@
+{
+	"icon":"icon.png",
+	"icon_width":"1",
+	"icon_height":"1",
+	"screenshots": [
+		"screen.png"
+	],
+	"screenshot_width":"4", 
+	"screenshot_height":"5"
+}

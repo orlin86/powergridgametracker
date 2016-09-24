@@ -1,0 +1,13 @@
+{
+	Type:"ControlSet",
+    Name:"[Plugin] GameTracker",
+	ExpandCategories:["*"],
+	
+	Elements:[
+		{
+            Name:"Deaths",
+            Control:"gametracker:Deaths",
+            Category:"Planetside2",
+		},
+     ],
+}
