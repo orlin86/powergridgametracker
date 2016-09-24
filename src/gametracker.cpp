@@ -39,7 +39,7 @@ QVariant gametracker::GetValue(QString p_sName,const QVariantList& p_axParams)
 	std::ofstream ofs ("test.txt", std::ofstream::out | std::ofstream::app);
 	ofs << "GetValue was called.";
 	ofs.close();
-
+	 
 	if (pollWebSocketStatus())
 		{
 			ofs << ".";

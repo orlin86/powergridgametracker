@@ -15,11 +15,13 @@ namespace Example
         [DllExport("pollNumDeaths", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
         public static int pollNumDeaths()
         {
+            // TODO write to file: pollNumDeaths: nDeaths
             return NumberOfDeaths;
         }
         [DllExport("helloWorld", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
         public static int helloWorld()
         {
+            // TODO write to file: helloWorld
             return 1337;
         }
         public static int code = 9999;
@@ -29,18 +31,21 @@ namespace Example
         [DllExport("OpenAndRunWebSocket", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
         public static void OpenAndRunWebSocket()
         {
+            // TODO create new logging file (overwrite).
+            // TODO write to file: opening websocket..
             ws = new WebSocket("wss://push.planetside2.com/streaming?environment=ps2&service-id=s:3216732167");
             ws.OnMessage += (sender, e) =>
             {
                 string msg = e.Data.ToString();
                 Console.WriteLine(msg);
-                if (msg.Contains("5428072203499339681"))
+                if (msg.Contains("8250613664849594641"))
                 {
                     NumberOfDeaths++;
                 }
             };
             ws.OnError += (sender, e) =>
             {
+                // TODO write to file: error
                 isError = true;
             };
 
@@ -50,11 +55,12 @@ namespace Example
                 code = e.Code;
             };
             ws.Connect();
+            // TODO write to file: websocket opened.
             Thread.Sleep(1000);
             TimeSpan wait = new TimeSpan(0, 0, 10);
             Thread.Sleep(wait);
             //here input the data to the server
-            ws.Send(@"{""service"":""event"",	""action"":""subscribe"",	""characters"":[""5428072203499339681""],	""eventNames"":[""Death""]}");
+            ws.Send(@"{""service"":""event"",	""action"":""subscribe"",	""characters"":[""8250613664849594641""],	""eventNames"":[""Death""]}");
         }
         [DllExport("CloseWebSocket", CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl)]
         public static void CloseWebSocket()

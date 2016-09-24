@@ -15,6 +15,7 @@ HEADERS += gametracker.h
 
 win32 {
     LIBS += -L$$PWD -lRoccatPowerGrid
+	LIBS += "planetside_api_client.lib"
 }
 
 OTHER_FILES += \
